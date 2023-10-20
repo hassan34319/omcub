@@ -10,7 +10,6 @@ import { addItem, increaseCount, itemType } from "../redux/reducers/cartSlice";
 
 function DisplayProduct(props: productProps) {
   const { productDetail, variantDetail } = props;
-  console.log('=>', productDetail)
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [activeVariant, setActiveVariant] = useState<variantDetailProps>(
