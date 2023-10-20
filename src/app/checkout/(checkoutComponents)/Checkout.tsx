@@ -24,6 +24,15 @@ const CheckoutComp = () => {
     totalAmount += item.totalPrice;
   });
 
+  const calculateShipping = (): number => {
+    let total = 0
+    items?.forEach(item => {
+      const price = item?.shippingBasePrice + (item?.quantity-1)*item?.shippingAdditionalPrice 
+      total += price
+    })
+    return parseFloat(total?.toFixed(2)) || 0
+  } 
+
   const handleSubmit = async () => {
     // Handle form submission here
     // ... (rest of your existing code)
@@ -34,6 +43,7 @@ const CheckoutComp = () => {
         "/api/checkoutSession",
         {
           items,
+          shippingRate: calculateShipping()
           // address : address,
         }
       );
@@ -92,23 +102,14 @@ const CheckoutComp = () => {
                   </div>
                   <div className="flex justify-between">
                     <p>Shipping</p>
-                    <p>FREE</p>
+                    <p>${calculateShipping()}</p>
                   </div>
-                  <div className="flex justify-between">
-                    <div className="flex flex-col gap-x-1 lg:flex-row">
-                      Estimated tax for:{" "}
-                      <p className="flex cursor-pointer items-end text-blue-500 hover:underline">
-                        Enter zip code
-                        {/* <ChevronDownIcon className="h-6 w-6" /> */}
-                      </p>
-                    </div>
-                    <p>$ -</p>
-                  </div>
+                  
                 </div>
 
                 <div className="flex justify-between pt-4 text-xl font-semibold">
                   <h4>Total</h4>
-                  <h4>{USDollar.format(totalAmount)}</h4>
+                  <h4>{USDollar.format(totalAmount + calculateShipping())}</h4>
                 </div>
               </div>
 
@@ -120,7 +121,7 @@ const CheckoutComp = () => {
                   <div className="flex flex-1 flex-col items-center space-y-8 rounded-xl text-black bg-white p-8 py-12 border-4 md:order-2">
                     <h4 className="mb-4 flex flex-col text-xl font-semibold">
                       Pay in full
-                      <span>{USDollar.format(totalAmount)}</span>
+                      <span>{USDollar.format(totalAmount + calculateShipping())}</span>
                     </h4>
 
                     {items?.map((item: itemType) => (

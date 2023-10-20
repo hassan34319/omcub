@@ -109,6 +109,8 @@ export type productDetailProps = {
   colorMapping?: any
   title: string
   uid: string
+  shippingBasePrice: string
+  shippingAdditionalPrice: string
   description: string
   _createdAt?: string
   _updatedAt?: string

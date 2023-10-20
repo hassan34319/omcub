@@ -1,5 +1,3 @@
-"use client";
-
 import CheckoutComp from "./(checkoutComponents)/Checkout";
 
 const page = () => {

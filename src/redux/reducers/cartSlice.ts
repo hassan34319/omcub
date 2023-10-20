@@ -9,7 +9,9 @@ export type itemType = {
     printUrl: string,
     price: number,
     quantity: number,
-    totalPrice: number
+    totalPrice: number,
+    shippingBasePrice: number
+    shippingAdditionalPrice: number
 }
 
 type initialStateType = {

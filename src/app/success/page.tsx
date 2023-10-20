@@ -31,14 +31,15 @@ async function success({
     if (!res.ok) return;
     
     const data = await res.json();
-    const products = data.session.data;
-    const productDetails = data.sessionDetails.metadata;
+    console.log('=>', data)
+    const products = data?.session?.data;
+    const shipping = data?.sessionDetails?.shipping_cost?.amount_subtotal / 100;
 
-    return products;
+    return { products, shipping };
   };
 
   const session_id = (searchParams?.session_id as string) || "none";
-  const products = await getStripeProducts(session_id!);
+  const { products, shipping } = await getStripeProducts(session_id!);
 
   const totalAmount = products?.reduce(
     (acc: number, product: StripeProduct) =>
@@ -117,23 +118,14 @@ async function success({
                   </div>
                   <div className="flex justify-between">
                     <p>Shipping</p>
-                    <p>FREE</p>
+                    <p>${shipping || 0}</p>
                   </div>
-                  <div className="flex justify-between">
-                    <div className="flex flex-col gap-x-1">
-                      Estimated tax for:{" "}
-                      <p className="flex cursor-pointer items-end text-blue-500 hover:underline">
-                        Enter zip code
-                        <ChevronDownIcon className="h-6 w-6" />
-                      </p>
-                    </div>
-                    <p>$ -</p>
-                  </div>
+                  
                 </div>
 
                 <div className="flex justify-between pt-4 text-xl font-semibold">
                   <h4>Total</h4>
-                  <h4>{USDollar.format(totalAmount)}</h4>
+                  <h4>{USDollar.format(totalAmount + shipping)}</h4>
                 </div>
               </div>
             </div>

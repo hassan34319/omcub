@@ -109,6 +109,8 @@ function DisplayProduct(props: productProps) {
             price:  parseFloat(productDetail?.sizeVariants?.find((variant: variantDetailProps) => variant?.size === activeVariant?.size)?.price),
             quantity: 1,
             totalPrice: parseFloat(productDetail?.sizeVariants?.find((variant: variantDetailProps) => variant?.size === activeVariant?.size)?.price),
+            shippingBasePrice: parseFloat(productDetail?.shippingBasePrice),
+            shippingAdditionalPrice: parseFloat(productDetail?.shippingAdditionalPrice)
         }
         dispatch(addItem(data))
     } else {

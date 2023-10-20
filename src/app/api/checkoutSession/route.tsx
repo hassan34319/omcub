@@ -24,13 +24,14 @@ export async function POST(
 ) {
     const body = await request.json();
     const items: itemType[] = body?.items;
+    const shippingPrice: number = body?.shippingRate;
     const transformedItems = items?.map((item) => ({
       price_data: {
         currency: "usd",
         product_data: {
           name: item?.title,
           // images: [urlFor(item.image[0]).url()],
-          images : [item?.printUrl],
+          images : [item?.image],
         },
         unit_amount: Math.round(item?.price * 100),
       },
@@ -43,13 +44,32 @@ export async function POST(
     try {
      const params: Stripe.Checkout.SessionCreateParams = {
         payment_method_types: ["card"],
-        // shipping_address_collection: {
-        //   allowed_countries: ["US", "CA", "GB"],
-        // },
         line_items: transformedItems,
         shipping_address_collection: {
           allowed_countries: ['US', 'CA', 'GB']
         },
+        shipping_options: [
+          {
+            shipping_rate_data: {
+              type: 'fixed_amount',
+              fixed_amount: {
+                amount: shippingPrice*100 || 0,
+                currency: 'usd',
+              },
+              display_name: 'Basic shipping',
+              delivery_estimate: {
+                minimum: {
+                  unit: 'business_day',
+                  value: 5,
+                },
+                maximum: {
+                  unit: 'business_day',
+                  value: 7,
+                },
+              },
+            },
+          }
+        ],
         payment_intent_data: {},
         mode: "payment",
         success_url: `${process.env.NEXT_PUBLIC_BASE_URL}success?session_id={CHECKOUT_SESSION_ID}`,

@@ -91,6 +91,18 @@ export default defineType({
       ],
     },
     {
+      name: 'shippingBasePrice',
+      type: 'string',
+      title: 'Shipping Base Price',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: 'shippingAdditionalPrice',
+      type: 'string',
+      title: 'Shipping Additional Item Price',
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
       name: 'sizeVariants',
       type: 'array',
       title: 'Product Size Variants',
