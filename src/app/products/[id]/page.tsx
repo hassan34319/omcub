@@ -12,7 +12,6 @@ const getData = async (id: string) => {
 async function Product({params}) {
   const productInfo: productProps = await getData(params.id);
   const { productDetail, variantDetail } = productInfo;
-  console.log(productDetail)
 
 
   return <DisplayProduct productDetail={productDetail} variantDetail={variantDetail} />
