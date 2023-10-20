@@ -70,7 +70,7 @@ export async function GET(req: Request) {
   try {
     const sessionId = req?.url?.split("=")[1] as string;
 
-    if (!sessionId) {
+    if (sessionId) {
 
 
     const session = await stripe.checkout.sessions.listLineItems(sessionId);
