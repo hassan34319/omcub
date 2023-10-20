@@ -1,0 +1,35 @@
+.hero {
+  height: 100vh;
+  background: url(/images/hero.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: inherit;
+
+  img {
+    width: 100%;
+  }
+}
+
+.new-arrivals {
+  .title {
+    .info {
+      position: relative;
+
+      .count {
+        &:after {
+          content: "";
+          position: absolute;
+          width: 2.5rem;
+          height: 1px;
+          background-color: #000;
+          bottom: -0.5rem;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+// footer {
+// position: relative;
+// }

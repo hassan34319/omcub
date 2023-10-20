@@ -1,0 +1,17 @@
+.products {
+  background-color: #f9f9f9;
+  .wrapper {
+  }
+}
+
+.box {
+  text-align: center;
+  margin: 5px 4.5px;
+  // width: calc(16.67% - 10px);
+
+  &.active {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+  }
+}

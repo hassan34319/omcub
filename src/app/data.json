@@ -1,0 +1,49 @@
+{
+  "resources": [
+    {
+      "title": "Find me on Twitter",
+      "link": "https://twitter.com/kendalmintcode",
+      "imageUrl": "/images/gallery/1.webp"
+    },
+    {
+      "title": "Welcome to Ark Labs",
+      "link": "https://ark-labs.co.uk",
+      "imageUrl": "/images/gallery/2.webp"
+    },
+    {
+      "title": "Some sort of third title",
+      "link": "https://twitter.com/kendalmintcode",
+      "imageUrl": "/images/gallery/3.webp"
+    },
+    {
+      "title": "A personal site perhaps?",
+      "link": "https://robkendal.co.uk",
+      "imageUrl": "/images/gallery/4.webp"
+    },
+    {
+      "title": "Super item number five",
+      "link": "https://twitter.com/kendalmintcode",
+      "imageUrl": "/images/gallery/5.webp"
+    },
+    {
+      "title": "Super item number six",
+      "link": "https://twitter.com/kendalmintcode",
+      "imageUrl": "/images/gallery/6.webp"
+    },
+    {
+      "title": "Super item number seven",
+      "link": "https://twitter.com/kendalmintcode",
+      "imageUrl": "/images/gallery/7.webp"
+    },
+    {
+      "title": "Super item number eight",
+      "link": "https://twitter.com/kendalmintcode",
+      "imageUrl": "/images/gallery/8.webp"
+    },
+    {
+      "title": "Super item number the last",
+      "link": "https://twitter.com/kendalmintcode",
+      "imageUrl": "/images/gallery/2.webp"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+Get info about your template: https://dashboard.gelato.com/docs/ecommerce/templates/get/#request (not imp)
+
+CREATE A STORE MANUALLY
+
+
+Create a product manually or by API using template or no: https://dashboard.gelato.com/docs/ecommerce/products/create-from-template/#request (varaints feild is optional, if you do not give, it will create its own using images in template)
+
+Get product information: https://dashboard.gelato.com/docs/ecommerce/products/get/#request

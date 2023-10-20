@@ -1,0 +1,7 @@
+.scrollbar {
+  display: none;
+
+  @media (max-width: 980px) {
+    display: block;
+  }
+}
